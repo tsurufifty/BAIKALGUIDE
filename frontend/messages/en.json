@@ -1,0 +1,531 @@
+{
+  "Meta": {
+    "siteName": "Baikal Guide",
+    "defaultDescription": "Youth travel portal of the Republic of Buryatia: routes, food tourism, events and music."
+  },
+  "Nav": {
+    "home": "Home",
+    "routes": "Routes",
+    "map": "Map",
+    "events": "Events",
+    "music": "Music blog",
+    "about": "About",
+    "contacts": "Contacts",
+    "faq": "FAQ",
+    "account": "Account",
+    "gettingThere": "Getting there",
+    "transport": "Transport",
+    "safety": "Safety",
+    "partners": "Partners",
+    "feedback": "Feedback",
+    "services": "Service",
+    "eco": "Protect Baikal",
+    "privacy": "Privacy",
+    "personalData": "Personal data"
+  },
+  "Common": {
+    "search": "Search",
+    "filter": "Filters",
+    "favorites": "Favorites",
+    "readMore": "Read more",
+    "loading": "Loading…",
+    "language": "Language",
+    "menu": "Menu",
+    "close": "Close",
+    "all": "All",
+    "noResults": "Nothing found."
+  },
+  "Home": {
+    "eyebrow": "Republic of Buryatia",
+    "heroTitle": "Discover Baikal your way",
+    "heroSubtitle": "Routes, events and music from the eastern shore — made for travellers chasing experiences, not checklists.",
+    "exploreRoutes": "Explore routes",
+    "openMap": "Open the map",
+    "popularRoutes": "Popular routes",
+    "popularRoutesSub": "From day trips to the datsans to multi-day treks along protected shores.",
+    "upcomingEvents": "Upcoming events",
+    "upcomingEventsSub": "Festivals, celebrations and concerts worth planning a trip around.",
+    "emptyRoutes": "Routes are coming soon.",
+    "emptyEvents": "No events yet — check back later.",
+    "heroImageAlt": "Frozen Lake Baikal with cracked ice and mountains on the horizon",
+    "photoCredit": "designed by Freepik - Magnific.com",
+    "interestsTitle": "What are you after?",
+    "interestsSub": "Pick the mood of your trip — we'll match routes to it.",
+    "interestAdrenalineTitle": "For adrenaline",
+    "interestAdrenalineDesc": "Treks, summits and active routes on the edge.",
+    "interestSoulTitle": "For the soul",
+    "interestSoulDesc": "Quiet shores, datsans and places to breathe out.",
+    "interestCultureTitle": "For culture",
+    "interestCultureDesc": "Festivals, traditions and events of Buryatia.",
+    "interestContentTitle": "For content",
+    "interestContentDesc": "The most photogenic spots and stories for your blog.",
+    "topPicksTitle": "Top picks",
+    "topPicksSub": "Ready-made ideas if you don't know where to start.",
+    "topPickWeekTitle": "Route of the week",
+    "topPickWeekDesc": "Editors' choice — catch it while the season lasts.",
+    "topPickHiddenTitle": "Hidden places",
+    "topPickHiddenDesc": "Spots the guidebooks never mention.",
+    "topPickBudgetTitle": "Budget trips",
+    "topPickBudgetDesc": "Vivid routes that won't break the bank.",
+    "topPickCta": "Explore",
+    "mapPreviewTitle": "All of Buryatia on one map",
+    "mapPreviewSub": "Routes, datsans, viewpoints and landmarks — with topic filters and thematic layers.",
+    "mapPreviewCta": "Open the map"
+  },
+  "RouteCard": {
+    "from": "from"
+  },
+  "Difficulty": {
+    "easy": "Easy",
+    "moderate": "Moderate",
+    "hard": "Hard",
+    "expert": "Expert"
+  },
+  "Season": {
+    "spring": "Spring",
+    "summer": "Summer",
+    "autumn": "Autumn",
+    "winter": "Winter",
+    "all_year": "All year"
+  },
+  "Activity": {
+    "active": "Active",
+    "culture": "Culture",
+    "nature": "Nature",
+    "gastronomy": "Gastronomy",
+    "relax": "Relax"
+  },
+  "RoutesFilter": {
+    "activity": "Type",
+    "duration": "Length",
+    "budget": "Budget",
+    "season": "Season",
+    "difficulty": "Difficulty",
+    "durationOpt": {
+      "1": "1 day",
+      "2-3": "2–3 days",
+      "4+": "4+ days"
+    },
+    "budgetOpt": {
+      "free": "Free",
+      "lt2000": "under ₽2,000",
+      "mid": "₽2,000–5,000",
+      "gt5000": "over ₽5,000"
+    }
+  },
+  "Rating": {
+    "title": "Route rating",
+    "count": "{count, plural, one {# rating} other {# ratings}}",
+    "noRatings": "No ratings yet",
+    "yourRating": "Your rating",
+    "star": "{n} of 5",
+    "hint": "Tap the stars to rate this route.",
+    "signInHint": "Sign in to rate this route."
+  },
+  "RoutesPage": {
+    "title": "Routes",
+    "subtitle": "Filter by season, difficulty and length — from strolls to expeditions.",
+    "empty": "Routes are coming soon."
+  },
+  "RouteDetail": {
+    "duration": "Duration",
+    "season": "Season",
+    "difficulty": "Difficulty",
+    "price": "Price",
+    "free": "Free",
+    "gallery": "Gallery",
+    "timeline": "Route timeline",
+    "logistics": "Logistics",
+    "waypoints": "Waypoints",
+    "mapNote": "An interactive map is coming in a future update."
+  },
+  "EventsPage": {
+    "title": "Events",
+    "subtitle": "Festivals, celebrations and concerts across Buryatia — by date.",
+    "empty": "No events yet — check back later."
+  },
+  "EventDetail": {
+    "when": "When",
+    "where": "Where"
+  },
+  "MusicPage": {
+    "title": "Music blog",
+    "subtitle": "Interviews, selections and artists from the Buryat scene.",
+    "articlesHeading": "Stories",
+    "artistsHeading": "Artists",
+    "emptyArticles": "Stories are coming soon.",
+    "emptyArtists": "Artists are coming soon."
+  },
+  "ArticleDetail": {
+    "featuring": "Featuring"
+  },
+  "ArticleCategory": {
+    "interview": "Interview",
+    "selection": "Selection",
+    "review": "Review",
+    "news": "News",
+    "story": "Story"
+  },
+  "MapPage": {
+    "title": "Map",
+    "subtitle": "Routes and points of interest across Buryatia on one map.",
+    "comingSoon": "Interactive map of points across Buryatia. Set a Yandex Maps key to display it.",
+    "noApiKey": "Yandex Maps key is not set (NEXT_PUBLIC_YANDEX_MAPS_API_KEY).",
+    "loadError": "Couldn't load the map. Check that the key is enabled for JavaScript API v3 and allowed for this domain."
+  },
+  "About": {
+    "title": "About",
+    "lead": "Baikal Guide is a modern digital platform for tourism and culture in Buryatia.",
+    "body": [
+      "We cover routes, events, food and music along Baikal's eastern shore — for travellers aged 17–35.",
+      "The project promotes tourism, showcases Buryat culture and grows a young community around the region.",
+      "All content is bilingual and continuously updated."
+    ]
+  },
+  "Faq": {
+    "title": "FAQ",
+    "subtitle": "The essentials for a trip to Baikal and Buryatia.",
+    "items": [
+      {
+        "q": "When is the best time to visit Baikal?",
+        "a": "Summer for treks and water, winter for ice and photography. Each route lists its recommended season."
+      },
+      {
+        "q": "Do I need a permit for national parks?",
+        "a": "Some protected areas require a permit. Check the description of each route."
+      },
+      {
+        "q": "How do I get there?",
+        "a": "The main gateway is Ulan-Ude: airport and railway. From there, take a transfer or rent a car."
+      }
+    ]
+  },
+  "Contacts": {
+    "title": "Contacts",
+    "subtitle": "Get in touch with the team.",
+    "body": "Have a route idea, an event for the calendar or a partnership proposal? Write to us.",
+    "email": "hello@baikal-guide.ru"
+  },
+  "GettingThere": {
+    "title": "Getting there",
+    "subtitle": "The main gateway to Buryatia is Ulan-Ude. Baikal is a few hours away from there.",
+    "sections": [
+      {
+        "title": "By air",
+        "body": "Ulan-Ude Baikal International Airport (UUD) handles direct flights from Moscow, Novosibirsk, Irkutsk and other cities. From the airport, take a taxi (~20–30 minutes) or a city bus to the centre."
+      },
+      {
+        "title": "By train",
+        "body": "The Trans-Siberian Railway runs through Ulan-Ude, connecting it with Moscow, Irkutsk, Vladivostok and Mongolia (toward Ulaanbaatar). The station is in the city centre."
+      },
+      {
+        "title": "By car",
+        "body": "The R-258 “Baikal” federal highway links Irkutsk and Ulan-Ude (~450 km along the southern shore). Renting a car is convenient for independent trips around the republic."
+      },
+      {
+        "title": "To the Baikal shore",
+        "body": "From Ulan-Ude to the eastern-shore villages (Gremyachinsk, Goryachinsk, Ust-Barguzin) there are scheduled buses, marshrutkas or transfers. Travel time ranges from 2 to 6 hours depending on the destination."
+      }
+    ]
+  },
+  "Transport": {
+    "title": "Transport",
+    "subtitle": "How to get around Ulan-Ude and the republic.",
+    "sections": [
+      {
+        "title": "Around the city",
+        "body": "Ulan-Ude has buses and marshrutkas; pay the driver in cash or by card. Taxis are easiest to order through apps — fast and inexpensive."
+      },
+      {
+        "title": "Between towns and villages",
+        "body": "Intercity buses and marshrutkas depart from the bus station. For popular destinations (Barguzin, Kurumkan, Kyakhta) it's best to buy tickets in advance during the season."
+      },
+      {
+        "title": "Car rental",
+        "body": "Rentals are available in the city and at the airport. For long or mountain routes choose all-wheel drive; watch the forecast and keep fuel topped up — petrol stations are sparse in remote areas."
+      },
+      {
+        "title": "Good to know",
+        "body": "Distances are large and some roads are unpaved. Plan extra time, keep cash on hand and download offline maps in advance — coverage isn't everywhere."
+      }
+    ]
+  },
+  "Safety": {
+    "title": "Safety",
+    "subtitle": "Basic rules for a smooth trip.",
+    "sections": [
+      {
+        "title": "Nature and weather",
+        "body": "Weather on Baikal changes quickly even in summer: bring warm and waterproof clothing. Wear a life vest on the water, never step onto the ice without a guide in winter, and respect the lake's power."
+      },
+      {
+        "title": "Health",
+        "body": "Get travel insurance. In remote areas medical help may be far away — carry a first-aid kit, tick and sun protection. If possible, get a tick-borne encephalitis vaccination in advance."
+      },
+      {
+        "title": "Connectivity and navigation",
+        "body": "Mobile coverage is reliable in cities and weaker in the mountains and along the shore. Download offline maps, and tell someone your route and expected return time."
+      },
+      {
+        "title": "Protected areas",
+        "body": "Some routes cross national parks — a permit and following the rules are required. Don't leave litter, don't light fires outside designated spots, and protect the fragile, protected wildlife."
+      },
+      {
+        "title": "Emergency services",
+        "body": "The single emergency number is 112. Save it along with your guide's or tour operator's contacts before heading out."
+      }
+    ]
+  },
+  "Partners": {
+    "title": "Partners",
+    "subtitle": "Who we build the project with and how to join.",
+    "sections": [
+      {
+        "title": "Who it's for",
+        "body": "We're open to working with tour operators, local guides, hotels and resorts, cafés and local producers, event organisers and content creators."
+      },
+      {
+        "title": "What we offer",
+        "body": "Listing your routes and events, featuring your place in blog stories, and promotion to a young audience interested in Buryatia and Baikal."
+      },
+      {
+        "title": "How to become a partner",
+        "body": "Write to us via the feedback form or by email — tell us about yourself and your idea. We'll get in touch to discuss the format."
+      }
+    ]
+  },
+  "Feedback": {
+    "title": "Feedback",
+    "subtitle": "A question, an idea or a partnership proposal — write to us and we'll reply.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send",
+    "sending": "Sending…",
+    "error": "Couldn't send. Please try again later.",
+    "successTitle": "Thank you!",
+    "successBody": "Your message has been sent. We'll get back to you if needed.",
+    "sendAnother": "Send another"
+  },
+  "Eco": {
+    "title": "Protect Baikal",
+    "subtitle": "Baikal is a UNESCO World Heritage site and the deepest lake on Earth. Travel so it stays that way for everyone who comes after you.",
+    "sections": [
+      {
+        "title": "Why it matters",
+        "body": "Baikal holds about 20% of the world's unfrozen fresh water and hundreds of endemic species found nowhere else. The ecosystem is fragile: a cigarette butt, soap in the water, a shortcut off the trail — small things carry a real cost here. Responsible travel isn't a restriction; it's how we keep the place we came for."
+      },
+      {
+        "title": "Leave no trace",
+        "body": "Pack out all your rubbish, including food scraps and cigarette butts. Don't use soap or shampoo in the lake or rivers. Stay on existing trails and don't cut corners — trampled slopes take decades to recover. Make fires only at designated spots and where permitted."
+      },
+      {
+        "title": "Protected areas",
+        "body": "Many routes cross national parks (Zabaikalsky, Pribaikalsky) and nature reserves. These require a permit and registration, with rules for camping and fires. Check the status of an area in advance — each route's description notes where a permit is needed."
+      },
+      {
+        "title": "Respect people and wildlife",
+        "body": "Buryatia is a living culture with Buddhist and shamanic traditions. At sacred sites (datsans, ovoo) behave modestly and ask permission before photographing people. Keep your distance from wildlife and the Baikal seal, and never feed them."
+      },
+      {
+        "title": "How to help",
+        "body": "Choose local guides and small family-run places — the money stays in the region. Join volunteer shore clean-ups. Carry a reusable bottle and a rubbish bag. Tell friends about treating Baikal gently — leading by example works better than any rule."
+      }
+    ]
+  },
+  "Cookie": {
+    "text": "We use cookies to run the site, remember your language choice and help us improve it. By continuing to use the site, you agree to this.",
+    "more": "Learn more",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "Newsletter": {
+    "title": "Stay in the loop",
+    "subtitle": "Routes, events and Baikal stories — once a month, no spam.",
+    "placeholder": "Your email",
+    "submit": "Subscribe",
+    "sending": "Sending…",
+    "success": "Done! You're subscribed.",
+    "error": "Couldn't subscribe. Please try again later.",
+    "follow": "Social"
+  },
+  "Interests": {
+    "routesHeading": "Routes for this mood",
+    "empty": "Routes for this theme are coming soon.",
+    "allRoutes": "All routes",
+    "exploreMap": "Open the map",
+    "adrenaline": {
+      "title": "For adrenaline",
+      "intro": "Treks on the edge, summits and active routes for those chasing the rush and views you have to earn."
+    },
+    "soul": {
+      "title": "For the soul",
+      "intro": "Quiet shores, datsans and slow routes where you can breathe out, reset and be alone with Baikal."
+    },
+    "culture": {
+      "title": "For culture",
+      "intro": "Buddhist temples, traditions and the history of Buryatia — routes for those who want to understand the region, not just see it."
+    },
+    "content": {
+      "title": "For content",
+      "intro": "The most photogenic spots, views and textures of Baikal — routes that make the best shots and stories."
+    }
+  },
+  "Privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "How we collect, use and protect your data when you use Baikal Guide. This document is a template and must be reviewed by a lawyer and completed with the operator's details before publication.",
+    "sections": [
+      {
+        "title": "1. General",
+        "body": "This Policy explains what data the Baikal Guide website (the “Site”) and its operator — [Operator name] — process and how it is protected. By using the Site you agree to this Policy. If you do not agree, please do not use the Site."
+      },
+      {
+        "title": "2. What data we collect",
+        "body": "Data you provide: your name and email when registering, sending feedback or subscribing to the newsletter; the text of your comments and route ratings.\nData collected automatically: IP address, device and browser type, language, the pages you open, and cookies."
+      },
+      {
+        "title": "3. Purposes",
+        "body": "We use data to: provide access to your account, favorites, comments and ratings; respond to your enquiries; send the newsletter (if you subscribed); improve the Site and analyse its use; and comply with legal requirements."
+      },
+      {
+        "title": "4. Legal bases",
+        "body": "We process data based on your consent, the need to provide you with the Site's services, our legitimate interests (security and improvement of the Site), and the requirements of applicable law."
+      },
+      {
+        "title": "5. Cookies and analytics",
+        "body": "The Site uses cookies to run the interface, remember your language choice and for analytics. You can disable cookies in your browser settings, but some features may not work correctly. Analytics uses anonymised statistics."
+      },
+      {
+        "title": "6. Sharing with third parties",
+        "body": "We do not sell your data. Data may be shared with service providers (hosting, analytics, mailing) acting on our behalf, and with authorised bodies where required by law."
+      },
+      {
+        "title": "7. Storage and protection",
+        "body": "Data is kept no longer than necessary for the stated purposes or required by law. We take reasonable organisational and technical measures to protect data from unauthorised access, alteration and loss."
+      },
+      {
+        "title": "8. Your rights",
+        "body": "You may request access to your data, its correction or deletion, withdraw consent to processing and the newsletter, and lodge a complaint with the competent authority. To do so, write to the address below."
+      },
+      {
+        "title": "9. Minors",
+        "body": "The Site is not intended for children under 14, and we do not knowingly collect their data. If you believe we have received such data, let us know and we will delete it."
+      },
+      {
+        "title": "10. Changes and contact",
+        "body": "We may update this Policy; the current version is always available on this page. For data questions, write to hello@baikal-guide.ru."
+      }
+    ]
+  },
+  "PersonalData": {
+    "title": "Personal Data Processing Policy",
+    "subtitle": "A document under Russian Federal Law No. 152-FZ “On Personal Data”. This is a template — fill in the operator's details and have it reviewed by a lawyer before publication.",
+    "sections": [
+      {
+        "title": "1. Operator",
+        "body": "Personal data operator: [Operator name], INN [INN], OGRN [OGRN], address: [address]. Contact for personal-data matters: hello@baikal-guide.ru."
+      },
+      {
+        "title": "2. Terms",
+        "body": "The terms “personal data”, “processing”, “data subject”, “operator” and others are used as defined by Russian Federal Law No. 152-FZ of 27 July 2006 “On Personal Data”."
+      },
+      {
+        "title": "3. Principles",
+        "body": "The operator processes personal data lawfully and fairly, for predefined and lawful purposes, not excessively relative to those purposes, ensuring accuracy and confidentiality of the data."
+      },
+      {
+        "title": "4. Subjects and data",
+        "body": "We process data of visitors and registered users of the Site: name/username, email address, the content of enquiries and comments, and technical data (IP address, device and browser information, cookies)."
+      },
+      {
+        "title": "5. Purposes",
+        "body": "Registration and providing an account; saving favorites, publishing comments and ratings; handling enquiries via the feedback form; sending informational materials with consent; ensuring the Site's operation and security; statistics and analytics."
+      },
+      {
+        "title": "6. Legal bases",
+        "body": "The data subject's consent; a contract to which the subject is a party (provision of the Site's services); the operator's legitimate interests and the requirements of the law of the Russian Federation."
+      },
+      {
+        "title": "7. Consent and withdrawal",
+        "body": "By providing data through the Site's forms, the subject consents to its processing under this Policy. Consent may be withdrawn at any time by writing to hello@baikal-guide.ru; after withdrawal the operator stops processing unless otherwise provided by law."
+      },
+      {
+        "title": "8. Procedure, conditions and terms",
+        "body": "Processing is carried out with and without automation tools. Data is stored no longer than required for the purposes or by law; once purposes are achieved or consent is withdrawn, data is deleted or anonymised."
+      },
+      {
+        "title": "9. Cross-border transfer",
+        "body": "Cross-border data transfer is carried out only in compliance with 152-FZ. If hosting or services are located outside Russia, the operator ensures adequate protection of subjects' rights."
+      },
+      {
+        "title": "10. Subject's rights",
+        "body": "The subject may obtain information about the processing of their data, request its clarification, blocking or destruction in case of incompleteness/inaccuracy or unlawful processing, withdraw consent, and appeal the operator's actions to Roskomnadzor or in court (Art. 14 of 152-FZ)."
+      },
+      {
+        "title": "11. Protection measures",
+        "body": "The operator takes legal, organisational and technical measures to protect personal data from unlawful access, alteration, copying, distribution and destruction, in accordance with Art. 18.1 and 19 of 152-FZ."
+      },
+      {
+        "title": "12. Final provisions",
+        "body": "The operator may amend this Policy; a new version takes effect upon publication on this page. For personal-data matters, contact hello@baikal-guide.ru."
+      }
+    ]
+  },
+  "Auth": {
+    "title": "Sign in & sign up",
+    "subtitle": "To save favorites and leave comments.",
+    "login": "Log in",
+    "register": "Sign up",
+    "username": "Username",
+    "email": "Email",
+    "identifier": "Email or username",
+    "password": "Password",
+    "pending": "Please wait…",
+    "emailHint": "Sign-up only with a Mail.ru or Yandex email.",
+    "emailNotAllowed": "You can only sign up with a Mail.ru or Yandex email.",
+    "registerNotice": "Sign-up is available only with Russian mail providers: Mail.ru (mail.ru, bk.ru, list.ru, inbox.ru, internet.ru) and Yandex (yandex.ru, ya.ru, yandex.com)."
+  },
+  "Account": {
+    "greeting": "Hi, {name}",
+    "logout": "Log out",
+    "favorites": "Favorites",
+    "noFavorites": "Nothing saved yet.",
+    "profileTitle": "Profile",
+    "changeAvatar": "Change avatar",
+    "username": "Username",
+    "email": "Email",
+    "save": "Save",
+    "saving": "Saving…",
+    "saved": "Saved.",
+    "saveError": "Couldn't save. The username or email may already be taken."
+  },
+  "Favorite": {
+    "save": "Save",
+    "saved": "Saved"
+  },
+  "Share": {
+    "title": "Share",
+    "copy": "Copy link",
+    "copied": "Link copied"
+  },
+  "Comments": {
+    "title": "Comments",
+    "placeholder": "Share your impression…",
+    "submit": "Send",
+    "moderation": "Your comment was sent for moderation.",
+    "posted": "Comment published.",
+    "profanity": "The comment contains inappropriate language and was not published.",
+    "error": "Couldn't send the comment. Please try again later.",
+    "loginPrompt": "Log in to leave a comment",
+    "empty": "No comments yet."
+  },
+  "Categories": {
+    "nature": "Nature",
+    "culture": "Culture",
+    "gastronomy": "Food",
+    "viewpoint": "Views",
+    "lodging": "Stay",
+    "transport": "Transport",
+    "other": "Other"
+  }
+}

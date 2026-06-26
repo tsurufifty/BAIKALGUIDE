@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_map_geo_points",
+  "info": {
+    "displayName": "Geo Point",
+    "icon": "pinMap",
+    "description": "GeoJSON-compatible coordinate (lng/lat order; used by Yandex Maps v3)"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "longitude": {
+      "type": "float",
+      "required": true,
+      "min": -180,
+      "max": 180
+    },
+    "latitude": {
+      "type": "float",
+      "required": true,
+      "min": -90,
+      "max": 90
+    },
+    "zoom": {
+      "type": "integer",
+      "default": 10,
+      "min": 0,
+      "max": 22
+    }
+  }
+}

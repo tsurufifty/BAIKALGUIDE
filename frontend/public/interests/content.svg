@@ -1,0 +1,21 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="ksky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#96c0ce"/>
+      <stop offset=".6" stop-color="#d8ba98"/>
+      <stop offset="1" stop-color="#efe8df"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#ksky)"/>
+  <circle cx="295" cy="120" r="36" fill="#efe8df" opacity=".85"/>
+  <polygon points="0,380 130,250 220,340 400,210 400,500 0,500" fill="#0f414a"/>
+  <polygon points="0,420 90,350 190,420 300,340 400,410 400,500 0,500" fill="#346b75" opacity=".55"/>
+  <g fill="none" stroke="#efe8df" stroke-width="6" opacity=".9">
+    <path d="M70,150 h-30 v30"/>
+    <path d="M330,150 h30 v30"/>
+    <path d="M70,330 h-30 v-30"/>
+    <path d="M330,330 h30 v-30"/>
+  </g>
+  <circle cx="200" cy="240" r="34" fill="none" stroke="#7f0303" stroke-width="5"/>
+  <circle cx="200" cy="240" r="5" fill="#7f0303"/>
+</svg>

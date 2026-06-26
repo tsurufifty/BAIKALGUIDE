@@ -1,0 +1,108 @@
+{
+  "kind": "collectionType",
+  "collectionName": "routes",
+  "info": {
+    "singularName": "route",
+    "pluralName": "routes",
+    "displayName": "Route",
+    "description": "Tourist routes across Buryatia"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "description": {
+      "type": "blocks",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "duration": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "durationDays": {
+      "type": "integer",
+      "min": 1,
+      "pluginOptions": { "i18n": { "localized": false } }
+    },
+    "activityType": {
+      "type": "enumeration",
+      "enum": ["active", "culture", "nature", "gastronomy", "relax"],
+      "default": "active",
+      "pluginOptions": { "i18n": { "localized": false } }
+    },
+    "logistics": {
+      "type": "blocks",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "season": {
+      "type": "enumeration",
+      "enum": ["spring", "summer", "autumn", "winter", "all_year"],
+      "default": "summer",
+      "pluginOptions": { "i18n": { "localized": false } }
+    },
+    "difficulty": {
+      "type": "enumeration",
+      "enum": ["easy", "moderate", "hard", "expert"],
+      "default": "moderate",
+      "pluginOptions": { "i18n": { "localized": false } }
+    },
+    "price": {
+      "type": "decimal",
+      "min": 0,
+      "pluginOptions": { "i18n": { "localized": false } }
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"],
+      "pluginOptions": { "i18n": { "localized": false } }
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images", "videos"],
+      "pluginOptions": { "i18n": { "localized": false } }
+    },
+    "coordinates": {
+      "type": "component",
+      "repeatable": true,
+      "component": "map.geo-point",
+      "pluginOptions": { "i18n": { "localized": false } }
+    },
+    "locations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::location.location",
+      "pluginOptions": { "i18n": { "localized": false } }
+    },
+    "ratings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rating.rating",
+      "mappedBy": "route",
+      "pluginOptions": { "i18n": { "localized": false } }
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "pluginOptions": { "i18n": { "localized": true } }
+    }
+  }
+}

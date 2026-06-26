@@ -1,0 +1,40 @@
+# dependencies
+node_modules/
+**/node_modules/
+
+# env
+.env
+**/.env
+!**/.env.example
+
+# next.js
+**/.next/
+**/out/
+**/.turbo/
+
+# strapi
+backend/.cache/
+backend/build/
+backend/dist/
+backend/.tmp/
+backend/public/uploads/*
+!backend/public/uploads/.gitkeep
+
+# pwa generated artifacts
+frontend/public/sw.js
+frontend/public/sw.js.map
+frontend/public/swe-worker-*.js
+
+# secrets / certs
+docker/nginx/ssl/*.pem
+docker/nginx/ssl/*.key
+
+# logs / os
+*.log
+.DS_Store
+
+# большие бинарники / установщики (не место в репозитории)
+*.exe
+*.msi
+*.dmg
+*.zip

@@ -1,0 +1,55 @@
+@import 'tailwindcss';
+
+/* Design System — Baikal Guide (see 03_DESIGN_SYSTEM.md) */
+@theme {
+  /* Palette: Midnight blue / Light blue / Maroon / Alabaster / Tan */
+  --color-primary: #0f414a; /* Midnight blue — dark surfaces, headings, primary buttons */
+  --color-secondary: #96c0ce; /* Light blue — soft accent surfaces */
+  --color-accent: #7f0303; /* Maroon — highlights, CTAs, prices, links */
+  --color-background: #efe8df; /* Alabaster — page background */
+  --color-foreground: #1c2426; /* near-black with a teal tint for text */
+  --color-muted: #7a7470; /* warm grey for secondary text */
+  --color-sand: #d8ba98; /* Tan — optional warm surface */
+
+  --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  /* Border radius 16–24px */
+  --radius-card: 1.25rem; /* 20px */
+  --radius-lg: 1.5rem; /* 24px */
+  --radius-md: 1rem; /* 16px */
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
+
+/* Form inputs (used by auth + comments) */
+.input {
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in srgb, var(--color-foreground) 12%, transparent);
+  background: #fff;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.95rem;
+  color: var(--color-foreground);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.input:focus {
+  border-color: var(--color-primary);
+}

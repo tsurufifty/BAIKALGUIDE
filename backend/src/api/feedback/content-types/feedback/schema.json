@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feedbacks",
+  "info": {
+    "singularName": "feedback",
+    "pluralName": "feedbacks",
+    "displayName": "Feedback",
+    "description": "Messages from the public feedback form (not localized)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": false
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "email": {
+      "type": "email"
+    },
+    "message": {
+      "type": "text",
+      "required": true,
+      "maxLength": 4000
+    },
+    "handled": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
