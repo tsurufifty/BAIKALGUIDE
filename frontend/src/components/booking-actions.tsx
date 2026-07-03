@@ -72,7 +72,7 @@ export function BookingActions({
           type="button"
           size="sm"
           variant="accent"
-          className="flex-1"
+          className="w-full"
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -87,7 +87,7 @@ export function BookingActions({
           target="_blank"
           rel="noopener noreferrer"
           onClick={stop}
-          className="inline-flex h-9 flex-1 items-center justify-center gap-2 rounded-md border border-primary/30 px-4 text-sm font-medium text-primary transition-colors hover:bg-primary/5"
+          className="inline-flex h-9 w-full items-center justify-center gap-2 rounded-md border border-primary/30 px-4 text-sm font-medium text-primary transition-colors hover:bg-primary/5"
         >
           <MessageCircle className="size-4" />
           {tc('contact')}

@@ -9,6 +9,7 @@ import { Container } from '@/components/ui/container';
 import { BlockContent } from '@/components/block-content';
 import { Gallery } from '@/components/gallery';
 import { FavoriteButton } from '@/components/favorite-button';
+import { BookingActions } from '@/components/booking-actions';
 import { ShareButtons } from '@/components/share-buttons';
 import { RatingWidget } from '@/components/rating-widget';
 import { Comments } from '@/components/comments';
@@ -124,7 +125,8 @@ export default async function RouteDetailPage({ params }: Props) {
                 }
               />
             </dl>
-            <div className="mt-5 flex flex-col gap-3">
+            <BookingActions routeTitle={route.title} className="mt-5 grid gap-2" />
+            <div className="mt-3 flex flex-col gap-3">
               <FavoriteButton type="route" itemId={route.documentId} />
               <a
                 href={`/${locale}/routes/${route.slug}/pdf`}
