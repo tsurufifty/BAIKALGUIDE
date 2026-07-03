@@ -5,108 +5,97 @@ import { useTranslations } from 'next-intl';
 import type { LocationEntry } from '@/lib/types';
 
 const API_KEY = process.env.NEXT_PUBLIC_YANDEX_MAPS_API_KEY;
-// Centred on Lake Baikal / Buryatia. Yandex v3 uses [lng, lat] order (like GeoJSON).
-const DEFAULT_CENTER: [number, number] = [108.2, 53.2];
+// Yandex Maps 2.1 uses [lat, lng] order. Centred on Lake Baikal / Buryatia.
+const DEFAULT_CENTER: [number, number] = [53.2, 108.2];
+const DEFAULT_ZOOM = 5;
 
-type LngLat = [number, number];
-
-interface YFeature {
-  type: 'Feature';
-  id: string;
-  geometry: { type: 'Point'; coordinates: LngLat };
-  properties: { title: string };
+/** Minimal surface of the Yandex Maps 2.1 global we actually use. */
+interface YmapsGeoObject {
+  add(objects: unknown): void;
+  removeAll(): void;
+  getBounds(): number[][] | null;
 }
-
-interface YMapInstance {
-  addChild(child: unknown): YMapInstance;
+interface YmapsMap {
+  geoObjects: { add(obj: unknown): void };
+  setBounds(bounds: number[][], opts?: Record<string, unknown>): void;
   destroy(): void;
 }
-
-interface YClusterer {
-  update(props: { features: YFeature[] }): void;
-}
-
-interface ClustererOptions {
-  method: unknown;
-  features: YFeature[];
-  marker: (feature: YFeature) => unknown;
-  cluster: (coordinates: LngLat, features: YFeature[]) => unknown;
-}
-
-/** Minimal surface of the Yandex Maps v3 global we actually use. */
-interface Ymaps3 {
-  ready: Promise<void>;
-  YMap: new (el: HTMLElement, props: { location: { center: LngLat; zoom: number } }) => YMapInstance;
-  YMapDefaultSchemeLayer: new () => unknown;
-  YMapDefaultFeaturesLayer: new () => unknown;
-  YMapMarker: new (props: { coordinates: LngLat }, element: HTMLElement) => unknown;
-  import(pkg: string): Promise<Record<string, unknown>>;
+interface Ymaps {
+  ready(cb: () => void): void;
+  Map: new (
+    el: HTMLElement | string,
+    state: Record<string, unknown>,
+    opts?: Record<string, unknown>,
+  ) => YmapsMap;
+  Placemark: new (
+    coords: [number, number],
+    props?: Record<string, unknown>,
+    opts?: Record<string, unknown>,
+  ) => unknown;
+  Clusterer: new (opts?: Record<string, unknown>) => YmapsGeoObject;
 }
 
 declare global {
   // eslint-disable-next-line no-var
-  var ymaps3: Ymaps3 | undefined;
+  var ymaps: Ymaps | undefined;
 }
 
-function loadYmaps(apiKey: string, lang: string): Promise<Ymaps3> {
+function loadYmaps(apiKey: string, lang: string): Promise<Ymaps> {
   if (typeof window === 'undefined') return Promise.reject(new Error('no window'));
-  if (window.ymaps3) return window.ymaps3.ready.then(() => window.ymaps3 as Ymaps3);
+  if (window.ymaps) {
+    return new Promise((resolve) => window.ymaps!.ready(() => resolve(window.ymaps as Ymaps)));
+  }
 
   return new Promise((resolve, reject) => {
     const finish = () => {
-      if (!window.ymaps3) return reject(new Error('ymaps3 failed to load'));
-      window.ymaps3.ready.then(() => resolve(window.ymaps3 as Ymaps3));
+      if (!window.ymaps) return reject(new Error('ymaps failed to load'));
+      window.ymaps.ready(() => resolve(window.ymaps as Ymaps));
     };
-    const existing = document.getElementById('ymaps3-script');
+    const existing = document.getElementById('ymaps-script');
     if (existing) {
       existing.addEventListener('load', finish);
-      existing.addEventListener('error', () => reject(new Error('ymaps3 failed to load')));
+      existing.addEventListener('error', () => reject(new Error('ymaps failed to load')));
       return;
     }
     const s = document.createElement('script');
-    s.id = 'ymaps3-script';
-    s.src = `https://api-maps.yandex.ru/v3/?apikey=${apiKey}&lang=${lang}`;
+    s.id = 'ymaps-script';
+    s.src = `https://api-maps.yandex.ru/2.1/?apikey=${apiKey}&lang=${lang}`;
     s.async = true;
     s.onload = finish;
-    s.onerror = () => reject(new Error('ymaps3 failed to load'));
+    s.onerror = () => reject(new Error('ymaps failed to load'));
     document.head.appendChild(s);
   });
 }
 
-function toFeatures(locations: LocationEntry[]): YFeature[] {
+function buildPlacemarks(ymaps: Ymaps, locations: LocationEntry[]): unknown[] {
   return locations
     .filter((l) => l.coordinates)
-    .map((l) => ({
-      type: 'Feature' as const,
-      id: l.documentId,
-      geometry: { type: 'Point' as const, coordinates: [l.coordinates.longitude, l.coordinates.latitude] as LngLat },
-      properties: { title: l.title },
-    }));
+    .map(
+      (l) =>
+        new ymaps.Placemark(
+          [l.coordinates.latitude, l.coordinates.longitude],
+          { hintContent: l.title, balloonContentHeader: l.title },
+          { preset: 'islands#orangeDotIcon' },
+        ),
+    );
 }
 
-function markerEl(title: string): HTMLElement {
-  const el = document.createElement('div');
-  el.title = title;
-  el.style.cssText =
-    'width:14px;height:14px;border-radius:50%;background:#C86B3C;border:2px solid #F5F1E8;' +
-    'box-shadow:0 1px 4px rgba(0,0,0,.3);cursor:pointer;transform:translate(-50%,-50%)';
-  return el;
-}
-
-function clusterEl(count: number): HTMLElement {
-  const el = document.createElement('div');
-  el.textContent = String(count);
-  el.style.cssText =
-    'min-width:34px;height:34px;padding:0 8px;border-radius:18px;background:#1F4D3A;color:#F5F1E8;' +
-    'display:flex;align-items:center;justify-content:center;font:600 13px/1 sans-serif;' +
-    'border:2px solid #F5F1E8;box-shadow:0 2px 6px rgba(0,0,0,.35);cursor:pointer;transform:translate(-50%,-50%)';
-  return el;
+function fitBounds(map: YmapsMap, clusterer: YmapsGeoObject): void {
+  const bounds = clusterer.getBounds();
+  if (!bounds) return;
+  try {
+    map.setBounds(bounds, { checkZoomRange: true, zoomMargin: 40 });
+  } catch {
+    /* single point / bounds unavailable — keep default view */
+  }
 }
 
 export function MapView({ locations, lang = 'ru_RU' }: { locations: LocationEntry[]; lang?: string }) {
   const t = useTranslations('MapPage');
   const containerRef = useRef<HTMLDivElement>(null);
-  const clustererRef = useRef<YClusterer | null>(null);
+  const mapRef = useRef<YmapsMap | null>(null);
+  const clustererRef = useRef<YmapsGeoObject | null>(null);
+  const ymapsRef = useRef<Ymaps | null>(null);
   const locationsRef = useRef<LocationEntry[]>(locations);
   const [failed, setFailed] = useState(false);
 
@@ -114,30 +103,29 @@ export function MapView({ locations, lang = 'ru_RU' }: { locations: LocationEntr
   useEffect(() => {
     if (!API_KEY || !containerRef.current) return;
     let cancelled = false;
-    let map: YMapInstance | null = null;
 
     (async () => {
       try {
-        const ymaps3 = await loadYmaps(API_KEY, lang);
+        const ymaps = await loadYmaps(API_KEY, lang);
         if (cancelled || !containerRef.current) return;
+        ymapsRef.current = ymaps;
 
-        const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker } = ymaps3;
-        map = new YMap(containerRef.current, { location: { center: DEFAULT_CENTER, zoom: 5 } });
-        map.addChild(new YMapDefaultSchemeLayer());
-        map.addChild(new YMapDefaultFeaturesLayer());
+        const map = new ymaps.Map(
+          containerRef.current,
+          { center: DEFAULT_CENTER, zoom: DEFAULT_ZOOM, controls: ['zoomControl', 'geolocationControl'] },
+          { suppressMapOpenBlock: true },
+        );
+        mapRef.current = map;
 
-        const mod = await ymaps3.import('@yandex/ymaps3-clusterer');
-        const YMapClusterer = mod.YMapClusterer as new (o: ClustererOptions) => YClusterer;
-        const clusterByGrid = mod.clusterByGrid as (o: { gridSize: number }) => unknown;
-
-        const clusterer = new YMapClusterer({
-          method: clusterByGrid({ gridSize: 64 }),
-          features: toFeatures(locationsRef.current),
-          marker: (f) => new YMapMarker({ coordinates: f.geometry.coordinates }, markerEl(f.properties.title)),
-          cluster: (coordinates, features) => new YMapMarker({ coordinates }, clusterEl(features.length)),
+        const clusterer = new ymaps.Clusterer({
+          preset: 'islands#darkGreenClusterIcons',
+          groupByCoordinates: false,
+          clusterDisableClickZoom: false,
         });
-        map.addChild(clusterer);
+        clusterer.add(buildPlacemarks(ymaps, locationsRef.current));
+        map.geoObjects.add(clusterer);
         clustererRef.current = clusterer;
+        fitBounds(map, clusterer);
       } catch (e) {
         console.warn('[map] Yandex Maps init failed:', (e as Error).message);
         if (!cancelled) setFailed(true);
@@ -147,7 +135,8 @@ export function MapView({ locations, lang = 'ru_RU' }: { locations: LocationEntr
     return () => {
       cancelled = true;
       clustererRef.current = null;
-      map?.destroy();
+      mapRef.current?.destroy();
+      mapRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lang]);
@@ -155,7 +144,13 @@ export function MapView({ locations, lang = 'ru_RU' }: { locations: LocationEntr
   // Re-cluster when the filtered list changes.
   useEffect(() => {
     locationsRef.current = locations;
-    clustererRef.current?.update({ features: toFeatures(locations) });
+    const ymaps = ymapsRef.current;
+    const clusterer = clustererRef.current;
+    const map = mapRef.current;
+    if (!ymaps || !clusterer) return;
+    clusterer.removeAll();
+    clusterer.add(buildPlacemarks(ymaps, locations));
+    if (map) fitBounds(map, clusterer);
   }, [locations]);
 
   if (!API_KEY) {

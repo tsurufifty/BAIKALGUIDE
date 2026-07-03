@@ -173,7 +173,7 @@
     "subtitle": "Routes and points of interest across Buryatia on one map.",
     "comingSoon": "Interactive map of points across Buryatia. Set a Yandex Maps key to display it.",
     "noApiKey": "Yandex Maps key is not set (NEXT_PUBLIC_YANDEX_MAPS_API_KEY).",
-    "loadError": "Couldn't load the map. Check that the key is enabled for JavaScript API v3 and allowed for this domain."
+    "loadError": "Could not load the map. Make sure the Yandex Maps key is active and allowed for this domain."
   },
   "About": {
     "title": "About",
