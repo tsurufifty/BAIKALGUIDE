@@ -73,7 +73,9 @@
     "mapPreviewCta": "Open the map"
   },
   "RouteCard": {
-    "from": "from"
+    "from": "from",
+    "book": "Book",
+    "contact": "Contact"
   },
   "Difficulty": {
     "easy": "Easy",
@@ -527,5 +529,27 @@
     "lodging": "Stay",
     "transport": "Transport",
     "other": "Other"
+  },
+  "Booking": {
+    "title": "Book this route",
+    "intro": "Leave your contacts and we will get in touch to confirm the details. Or message us on VK.",
+    "route": "Route",
+    "name": "Name",
+    "contact": "How to reach you",
+    "contactPlaceholder": "Phone, Telegram or a profile link",
+    "message": "Comment",
+    "submit": "Send request",
+    "sending": "Sending…",
+    "successTitle": "Request sent!",
+    "successBody": "Thank you! We will contact you shortly. You can also message us on VK.",
+    "error": "Could not send. Please try again or message us on VK.",
+    "vk": "Message us on VK",
+    "close": "Close"
+  },
+  "Gallery": {
+    "open": "Open photo",
+    "close": "Close",
+    "prev": "Previous photo",
+    "next": "Next photo"
   }
 }
