@@ -6,8 +6,8 @@ import type { LocationEntry } from '@/lib/types';
 
 const API_KEY = process.env.NEXT_PUBLIC_YANDEX_MAPS_API_KEY;
 // Yandex Maps 2.1 uses [lat, lng] order. Centred on Lake Baikal / Buryatia.
-const DEFAULT_CENTER: [number, number] = [53.2, 108.2];
-const DEFAULT_ZOOM = 5;
+const DEFAULT_CENTER: [number, number] = [53.5, 108.2];
+const DEFAULT_ZOOM = 6;
 
 /** Minimal surface of the Yandex Maps 2.1 global we actually use. */
 interface YmapsGeoObject {
