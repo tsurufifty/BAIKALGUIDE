@@ -4,6 +4,7 @@
  * creating a duplicate. Reads are public (used to compute route averages).
  */
 import { factories } from '@strapi/strapi';
+import { localeSafeConnect } from '../../../utils/localized-relation';
 
 export default factories.createCoreController('api::rating.rating', ({ strapi }) => ({
   async create(ctx) {
@@ -31,10 +32,11 @@ export default factories.createCoreController('api::rating.rating', ({ strapi })
       return { data: updated };
     }
 
+    const routeConnect = await localeSafeConnect(strapi, 'api::route.route', routeDocId);
     const created = await strapi.documents('api::rating.rating').create({
       data: {
         value: data.value,
-        route: { connect: [routeDocId] },
+        route: routeConnect,
         user: { connect: [user.documentId] },
       } as never,
     });

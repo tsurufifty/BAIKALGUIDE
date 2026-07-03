@@ -4,6 +4,7 @@
  */
 import { factories } from '@strapi/strapi';
 import { containsProfanity } from '../../../utils/profanity';
+import { localeSafeConnect, relDocId } from '../../../utils/localized-relation';
 
 export default factories.createCoreController('api::comment.comment', ({ strapi }) => ({
   async create(ctx) {
@@ -16,8 +17,22 @@ export default factories.createCoreController('api::comment.comment', ({ strapi 
       return ctx.badRequest('profanity', { reason: 'profanity' });
     }
 
+    const payload: Record<string, unknown> = {
+      content: data.content,
+      user: { connect: [user.documentId] },
+      approved: true,
+    };
+    // Connect the localized target (route/article) against a locale that
+    // actually exists — content may be authored in ru only.
+    for (const key of ['route', 'article'] as const) {
+      if (data[key]) {
+        const conn = await localeSafeConnect(strapi, `api::${key}.${key}`, relDocId(data[key]));
+        if (conn) payload[key] = conn;
+      }
+    }
+
     const created = await strapi.documents('api::comment.comment').create({
-      data: { ...data, user: { connect: [user.documentId] }, approved: true } as never,
+      data: payload as never,
     });
     return { data: created };
   },
